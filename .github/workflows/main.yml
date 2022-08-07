@@ -1,0 +1,16 @@
+name: Build Console-MFE-Webserver
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: |
+          docker build --rm --no-cache -t k8s.internal.msd.net:5001/msd/web-gateway-service:1.0.0 .
+          docker push k8s.internal.msd.net:5001/msd/web-gateway-service:1.0.0
+      - name: Cleanup dangling and unused docker resources
+        run: docker system prune --force
