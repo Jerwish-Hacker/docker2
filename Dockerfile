@@ -7,6 +7,7 @@ RUN ["luarocks", "install", "lua-resty-jwt"]
 
 ADD lib/resty/openidc.lua /usr/local/openresty/lualib/resty/openidc.lua
 COPY conf/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
+COPY conf/authz.conf /usr/local/openresty/nginx/conf/authz.conf
 
 CMD ["nginx", "-g", "daemon off;"]
 
