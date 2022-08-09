@@ -2,9 +2,6 @@ version: '2'
 services:
   import-map-deployer:
     image: console/web-gateway-service
-    environment:
-      HTTP_USERNAME: admin
-      HTTP_PASSWORD: myschooldiary
     container_name: web-gateway-service
     ports:
-    - 9000:80
+    - 80:80
