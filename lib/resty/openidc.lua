@@ -1226,7 +1226,6 @@ local function openidc_logout(opts, session)
     ngx.header["X-Frame-Options"] = "DENY"
     ngx.header.content_type = "image/png"
     ngx.print(openidc_transparent_pixel)
-    ngx.exit(ngx.OK)
     return
   elseif opts.redirect_after_logout_uri or opts.discovery.end_session_endpoint then
     local uri
