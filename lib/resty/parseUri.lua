@@ -15,4 +15,16 @@ function parse_uri( uri )
   return tenantId
 end
 
-return parse_uri(ngx.arg[1])
+function splitString(input, sep)
+  local count = 0
+  for token in string.gmatch(input, "([^"..sep.."]+)") do
+    print(token)
+    tenantId = token
+    if(count == 1) then
+      break
+    end
+    count = count + 1
+  end
+end
+
+return splitString(ngx.arg[1], '/')
