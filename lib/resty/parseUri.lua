@@ -7,9 +7,10 @@ function parse_uri( uri )
         count = count + 1
         -- URI example: /tenants/{tenantId}/users/{userId}/payments/{paymentId}/
         -- break after reading tenantId path param and return tenantId
-        if(count == 2)
+        if(count == 2) then
           tenantId = token
           break
+        end
     end
   return tenantId
 end
