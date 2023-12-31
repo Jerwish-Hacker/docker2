@@ -6,10 +6,9 @@ RUN ["luarocks", "install", "lua-resty-openidc"]
 RUN ["luarocks", "install", "lua-resty-http"]
 RUN ["luarocks", "install", "lua-resty-jwt"]
 
-COPY conf/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
-COPY conf/nginx_api.conf /usr/local/openresty/nginx/conf/nginx_api.conf
-COPY conf/authz.conf /usr/local/openresty/nginx/conf/authz.conf
-COPY conf/authz_api.conf /usr/local/openresty/nginx/conf/authz_api.conf
+COPY conf/nginx_local.conf /usr/local/openresty/nginx/conf/nginx.conf
+# COPY conf/nginx_api.conf /dnginx_api.conf
+COPY conf/authz_local.conf /usr/local/openresty/nginx/conf/authz.conf
 
 CMD ["nginx", "-g", "daemon off;"]
 

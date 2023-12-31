@@ -1,6 +1,6 @@
 version: '2'
 services:
-  import-map-deployer:
+  web-gateway-service:
     image: console/web-gateway-service
     container_name: web-gateway-service
     ports:
