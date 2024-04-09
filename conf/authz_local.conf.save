@@ -1,7 +1,7 @@
 access_by_lua_block {
   local opts = {
     redirect_uri = "/redirect_uri",
-    discovery = "http://yettihealth.com/auth/realms/yettihealthcare/.well-known/openid-configuration",
+    discovery = "http://20.55.232.109/auth/realms/yettihealthcare/.well-known/openid-configuration",
     client_id = "web-gateway-service",
     client_secret = "25daa9b4-c453-403f-91e5-435252c5937c",
     logout_path = "/logout",
@@ -22,13 +22,13 @@ access_by_lua_block {
     end
     ngx.log(ngx.INFO, "res.id_token.sub=", res.id_token.sub)
     ngx.log(ngx.INFO, "res.email=", res.id_token.email)
-    ngx.log(ngx.INFO, "res.username=", res.id_token.username)
-    ngx.log(ngx.INFO, "res.username=", res.id_token.user)
+    ngx.log(ngx.INFO, "res.username=", res.65d11a38-0a17-4a07-8bbe-e4b406327262username)
+    ngx.log(ngx.INFO, "res.username=", res.user)
 
 
     ngx.req.set_header("X-USER", res.id_token.sub)
     ngx.req.set_header("AuthUserId", res.id_token.sub)
-    ngx.req.set_header("username", res.id_token.preferred_username)
-    ngx.req.set_header("user", res.id_token.email)
-    ngx.req.set_header("email", res.id_token.email)
+    ngx.req.set_header("username", res.preferred_username)
+    ngx.req.set_header("user", res.email)
+    ngx.req.set_header("email", res.email)
 }
